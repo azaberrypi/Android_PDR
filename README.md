@@ -9,9 +9,9 @@ I developed it to contribute my article to a book for the techbookfest (技術�
 
 ## Usage
 
-1. Install the SpyApp on your Android phone.
+1. Build and install the [SpyApp](SpyApp) on your Android phone.
 2. Walk with the app and get the data.
-3. Feed the collected data into the Python script.
+3. Feed the collected data into the script, [SensorDataToMap.py](SensorDataToMap.py).
 4. Input some information such as initial positions or the subject (pedestrian)'s height to the script.
 5. Install the required packages from [requirements.txt](requirements.txt), then analyze the data using the Python script.
 6. Obtain a map showing the trajectory of the walk.
