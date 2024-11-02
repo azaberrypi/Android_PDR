@@ -4,7 +4,7 @@
 
 You can obtain data from the linear acceleration sensor and gyroscope of an Android smartphone to perform Pedestrian Dead Reckoning (PDR) without GPS.
 
-I developed it to contribute my article to a book for the techbookfest (技術書典17).
+I developed it to contribute my article to a book for the Tech Book Fest 17 (技術書典17).
 
 <p align="center">
   <img src="result.png" alt="Sample image of PDR result" width="500">
