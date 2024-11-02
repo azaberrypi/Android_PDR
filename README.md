@@ -6,6 +6,12 @@ You can obtain data from the linear acceleration sensor and gyroscope of an Andr
 
 I developed it to contribute my article to a book for the techbookfest (技術書典17).
 
+<p align="center">
+  <img src="result.png" alt="Sample Image" width="500">
+</p>
+
+<p align="center"><em>Sample result of PDR</em></p>
+
 
 ## Usage
 
