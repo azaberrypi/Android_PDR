@@ -74,8 +74,8 @@ class MainActivity : ComponentActivity(), SensorEventListener {
                         .padding(innerPadding)
                         .padding(16.dp)) {
                         SensorDisplay(
-                            gyroZ = _gyroZ, gyroTimestamp = _gyroTimestamp, gyroRate = _gyroSamplingRate,
-                            linAccX = _linAccX, linAccY = _linAccY, linAccZ = _linAccZ, linAccTimestamp = _linAccXTimestamp
+                            gyroVendor = gyroscope?.vendor ?: "Unknown", gyroName = gyroscope?.name ?: "Unknown", gyroZ = _gyroZ, gyroTimestamp = _gyroTimestamp, gyroRate = _gyroSamplingRate,
+                            linAccVendor = lineAcceleration?.vendor ?: "Unknown", linAccName = lineAcceleration?.name ?: "Unknown", linAccX = _linAccX, linAccY = _linAccY, linAccZ = _linAccZ, linAccTimestamp = _linAccXTimestamp
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         Button(onClick = { toggleDataCollection() }) {
@@ -196,20 +196,24 @@ class MainActivity : ComponentActivity(), SensorEventListener {
 
 @Composable
 fun SensorDisplay(
-    gyroZ: Float, gyroTimestamp: Long, gyroRate: Float,
-    linAccX: Float, linAccY: Float, linAccZ: Float, linAccTimestamp: Long
+    gyroVendor: String, gyroName: String, gyroZ: Float, gyroTimestamp: Long, gyroRate: Float,
+    linAccVendor: String, linAccName: String, linAccX: Float, linAccY: Float, linAccZ: Float, linAccTimestamp: Long
 ) {
     Text(
         text = """
-            TYPE_GYROSCOPE:
-            Z = %.6f
-            Timestamp: %d
-            Sampling Rate: %.2f Hz
+            Gyroscope Sensor Info:
+            - Name: %s %s
+            - Z-axis: %.6f
+            - Timestamp: %d
+            - Sampling Rate: %.2f Hz
             
-            TYPE_LINEAR_ACCELERATION:
-            X = %.6f, Y = %.6f, Z = %.6f
-            Timestamp: %d
-        """.trimIndent().format(gyroZ, gyroTimestamp, gyroRate, linAccX, linAccY, linAccZ, linAccTimestamp)
+            Linear Acceleration Sensor Info:
+            - Name: %s %s
+            - X-axis: %.6f
+            - Y-axis: %.6f
+            - Z-axis: %.6f
+            - Timestamp: %d
+        """.trimIndent().format(gyroVendor, gyroName, gyroZ, gyroTimestamp, gyroRate, linAccVendor, linAccName, linAccX, linAccY, linAccZ, linAccTimestamp)
     )
 }
 
@@ -218,8 +222,8 @@ fun SensorDisplay(
 fun SensorDisplayPreview() {
     Pdr_azaTheme {
         SensorDisplay(
-            gyroZ = 0f, gyroTimestamp = 0L, gyroRate = 0f,
-            linAccX = 0f, linAccY = 0f, linAccZ = 0f, linAccTimestamp = 0L
+            gyroVendor = "",  gyroName = "", gyroZ = 0f, gyroTimestamp = 0L, gyroRate = 0f,
+            linAccVendor = "", linAccName = "", linAccX = 0f, linAccY = 0f, linAccZ = 0f, linAccTimestamp = 0L
         )
     }
 }
